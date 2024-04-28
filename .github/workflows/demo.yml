@@ -1,0 +1,32 @@
+name: Demo
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  windows:
+    runs-on: windows-2019
+    defaults:
+      run:
+        shell: msys2 {0}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: mingw64
+          install: mingw-w64-x86_64-rust
+          update: true
+      - run: cargo install cargo-auditable --git https://github.com/rust-secure-code/cargo-auditable --force
+      - run: cargo rustc -- -vV
+        name: MSVC version info
+      - run: cargo build --release -vv
+        name: MSVC release
+      - run: cargo auditable build --release -vv
+        name: Auditable MSVC release
+      - run: cargo rustc --target x86_64-pc-windows-gnu -- -vV
+        name: GNU version info
+      - run: cargo build --target x86_64-pc-windows-gnu --release -vv
+        name: GNU release
+      - run: cargo auditable build --target x86_64-pc-windows-gnu --release -vv
+        name: Auditable GNU release

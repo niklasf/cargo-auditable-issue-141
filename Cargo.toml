@@ -1,0 +1,6 @@
+[package]
+name = "cargo-auditable-issue-x"
+edition = "2021"
+
+[dependencies]
+zstd = "0.13.1"
