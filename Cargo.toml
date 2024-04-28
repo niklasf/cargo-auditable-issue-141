@@ -1,5 +1,5 @@
 [package]
-name = "cargo-auditable-issue-x"
+name = "cargo-auditable-issue-141"
 edition = "2021"
 
 [dependencies]
