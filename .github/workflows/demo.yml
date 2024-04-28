@@ -20,12 +20,12 @@ jobs:
 
       - run: cargo install cargo-auditable --git https://github.com/rust-secure-code/cargo-auditable --force
 
-      - run: cargo rustc -- -vV
-        name: MSVC version info
-      - run: cargo build --release -vv
-        name: MSVC release
-      - run: cargo auditable build --release -vv
-        name: Auditable MSVC release
+      #- run: cargo rustc -- -vV
+      #  name: MSVC version info
+      #- run: cargo build --release -vv
+      #  name: MSVC release
+      #- run: cargo auditable build --release -vv
+      #  name: Auditable MSVC release
 
       - run: cargo rustc --target x86_64-pc-windows-gnu -- -vV
         name: GNU version info
