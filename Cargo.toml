@@ -4,3 +4,6 @@ edition = "2021"
 
 [dependencies]
 zstd = "0.13.1"
+
+[build-dependencies]
+zstd = "0.13.1"
